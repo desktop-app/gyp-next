@@ -106,7 +106,7 @@ def _DoRemapping(element, map):
         if not callable(map):
             map = map.get  # Assume it's a dict, otherwise a callable to do the remap.
         if isinstance(element, list) or isinstance(element, tuple):
-            element = filter(None, [map(elem) for elem in element])
+            element = list(filter(None, [map(elem) for elem in element]))
         else:
             element = map(element)
     return element
